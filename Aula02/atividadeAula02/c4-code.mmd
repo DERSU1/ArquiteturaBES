@@ -1,0 +1,29 @@
+classDiagram
+    class IceCreamOrder {
+        - id
+        - flavors
+        - toppings
+        - size
+        - status
+        + createOrder(flavors, toppings, size)
+        + cancelOrder()
+        + updateStatus(newStatus)
+        + calculateTotal()
+    }
+ 
+    class Notification {
+        <<interface>>
+        +notify(order)
+    }
+ 
+    class EmailNotifier {
+        +notify(order)
+    }
+ 
+     class MessagingService {
+        +send(message)
+    }
+ 
+    IceCreamOrder --> Notification : usa
+    EmailNotifier ..|> Notification : implementa
+    EmailNotifier --> MessagingService : usa
