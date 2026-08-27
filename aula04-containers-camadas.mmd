@@ -1,0 +1,24 @@
+flowchart LR
+
+    subgraph Apresentacao
+        WEB[Aplicação Web]
+    end
+
+    subgraph Dominio
+        API[API de Negócio]
+    end
+
+    subgraph Dados
+        DB[(Banco de Dados)]
+    end
+
+    V[Vendedor]
+    A[Administrador]
+    E[Operador de Estoque]
+
+    V --> WEB
+    A --> WEB
+    E --> WEB
+
+    WEB --> API
+    API --> DB

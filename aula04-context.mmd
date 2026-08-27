@@ -1,0 +1,11 @@
+flowchart LR
+
+    V[Vendedor]
+    A[Administrador]
+    E[Operador de Estoque]
+
+    S[Sistema de Gestão de Vendas]
+
+    V -->|Registra pedidos| S
+    A -->|Cadastra e remove produtos| S
+    E -->|Controla entradas e saídas| S
