@@ -1,0 +1,19 @@
+flowchart TD
+User(["Cliente"])
+Staff(["Atendente"])
+ 
+subgraph SB["Sistema da Sorveteria"]
+    App["App / Totem do Cliente"]
+    Backoffice["Painel da Sorveteria"]
+    Server["API"]
+    DB[("Banco de dados")]
+end
+ 
+Email["Serviço de Mensageria"]
+ 
+User -->|monta sorvete| App
+Staff -->|gerencia pedidos| Backoffice
+App -->|Chama API| Server
+Backoffice -->|Chama API| Server
+Server -->|Lê e grava| DB
+Server --->|Envia notificação| Email

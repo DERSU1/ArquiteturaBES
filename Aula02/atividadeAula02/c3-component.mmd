@@ -1,0 +1,12 @@
+flowchart TD
+    subgraph SA["API"]
+        Flavor["Sabores<br>listar e buscar sorvetes e coberturas"]
+        Order["Pedido<br>monta e processa o pedido do sorvete"]
+        Notification["Notificação<br>envia aviso de pedido pronto"]
+    end
+ 
+    EmailService["Serviço Externo de E-mail"]
+ 
+    Order -->|Consulta| Flavor
+    Order -->|acionar| Notification
+    Notification -->|chama| EmailService

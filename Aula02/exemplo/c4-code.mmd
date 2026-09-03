@@ -1,0 +1,30 @@
+classDiagram
+    class Loan {
+        - id
+        - book
+        - dueDate
+        - retrieveDate
+        - loanDate
+        + loan(book, user, dueDate, retrieveDate, loanDate)
+        + renew(newDueDate)
+        + return()
+        + isOverDue()
+ 
+    }
+ 
+    class Notification {
+        <<interface>>
+        +notify(loan)
+    }
+ 
+    class EmailNotifier {
+        +notify(loan)
+    }
+ 
+     class EmailService {
+        +send(message)
+    }
+ 
+    Loan --> Notification : usa
+    EmailNotifier ..|> Notification : implementa
+    EmailNotifier --> EmailService : usa
