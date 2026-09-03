@@ -1,0 +1,9 @@
+flowchart LR
+    User(["Cliente<br>monta e compra sorvete"])
+    Staff(["Atendente / Estoquista<br>gerencia sabores e pedidos"])
+    System["Sistema da Sorveteria"]
+    Email["Serviço de e-mail / WhatsApp"]
+ 
+    User -->|monta e pede sorvete| System
+    Staff -->|gerencia estoque e pedidos| System
+    System -->|envia recibo e status| Email
